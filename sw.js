@@ -4,7 +4,14 @@ self.addEventListener('fetch', function(event) {
     response = new Response(`
 <html>
 <head>
-<script>alert('hello from js.');</script>
+<script>
+navigator.serviceWorker.register('sw.js', {scope: './'})
+.then((reg) => {
+  console.log(`registration success scope(${reg.scope}).`);
+}).catch((error) => {
+  console.log(`registration error(${error})`);
+  });
+</script>
 </head>
 <body>
 foo
