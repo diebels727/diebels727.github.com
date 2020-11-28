@@ -3,8 +3,8 @@ self.addEventListener('fetch', function(event) {
     console.log('handling event for js/app.js');
     response = new Response("navigator.serviceWorker.register('https://www.example.com/js/sw2.js', {scope: './'}).then((reg) => {console.log('success.');}).catch((error) => {console.log('failure');});alert('did register.');", 
     {headers: {'Content-Type': 'application/javascript', 'service-worker-allowed': '*', 'service-worker': true, 'type': 'js/app.js'}});
+    alert('first register');
     console.log(response);
-    console.log(response.body);
     event.respondWith(response);
     return;
   }
