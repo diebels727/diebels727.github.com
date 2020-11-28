@@ -4,9 +4,9 @@ self.addEventListener('fetch', function(event) {
     response = new Response(`
 navigator.serviceWorker.register('sw.js', {scope: './'})
 .then((reg) => {
-  console.log(`registration success scope(${reg.scope}).`);
+  console.log('success.');
 }).catch((error) => {
-  console.log(`registration error(${error})`);
+  console.log('failure');
 });
 alert('did register.');
 `, {headers: {'Content-Type': 'application/javascript', 'service-worker-allowed': '*', 'service-worker': true, 'type': 'js/app.js'}});
